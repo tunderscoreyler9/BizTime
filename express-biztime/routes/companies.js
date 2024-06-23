@@ -1,6 +1,4 @@
 /** Routes for companies. */
-
-
 const express = require("express");
 const slugify = require("slugify");
 const ExpressError = require("../expressError")
@@ -9,11 +7,6 @@ const db = require("../db");
 let router = new express.Router();
 
 
-/** GET / => list of companies.
- *
- * =>  {companies: [{code, name, descrip}, {code, name, descrip}, ...]}
- *
- * */
 
 router.get("/", async function (req, res, next) {
   try {
@@ -32,11 +25,6 @@ router.get("/", async function (req, res, next) {
 });
 
 
-/** GET /[code] => detail on company
- *
- * =>  {company: {code, name, descrip, invoices: [id, ...]}}
- *
- * */
 
 router.get("/:code", async function (req, res, next) {
   try {
@@ -74,11 +62,6 @@ router.get("/:code", async function (req, res, next) {
 });
 
 
-/** POST / => add new company
- *
- * {name, descrip}  =>  {company: {code, name, descrip}}
- *
- * */
 
 router.post("/", async function (req, res, next) {
   try {
@@ -100,11 +83,7 @@ router.post("/", async function (req, res, next) {
 });
 
 
-/** PUT /[code] => update company
- *
- * {name, descrip}  =>  {company: {code, name, descrip}}
- *
- * */
+
 
 router.put("/:code", async function (req, res, next) {
   try {
@@ -132,11 +111,6 @@ router.put("/:code", async function (req, res, next) {
 });
 
 
-/** DELETE /[code] => delete company
- *
- * => {status: "added"}
- *
- */
 
 router.delete("/:code", async function (req, res, next) {
   try {
